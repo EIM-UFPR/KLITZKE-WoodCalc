@@ -9,10 +9,30 @@ const fmt = (v, k = 'EMC') =>
     ? v.toFixed(2).replace('.', ',')
     : String(Math.round(v));
 const status=(msg,error=false)=>{const el=$('status');el.textContent=msg;el.classList.toggle('error',error);};
-function parseInput(k){const s=inputs[k].value.trim().replace(',','.');if(!s)return null;if(!/^-?\d+(?:\.\d+)?$/.test(s))throw Error(`${k==='EMC'?'TUE':k}: informe um número válido.`);if (k !== 'EMC' && !Number.isInteger(v)) {
-  throw Error(`${k}: informe somente números inteiros.`);
+
+function parseInput(k) {
+  const s = inputs[k].value.trim().replace(',', '.');
+
+  if (!s) return null;
+
+  if (!/^-?\d+(?:\.\d+)?$/.test(s)) {
+    throw Error(`${k === 'EMC' ? 'TUE' : k}: informe um número válido.`);
+  }
+
+  const v = Number(s);
+
+  if (!Number.isFinite(v)) {
+    throw Error('Número inválido.');
+  }
+
+  if (k !== 'EMC' && !Number.isInteger(v)) {
+    throw Error(`${k}: informe somente números inteiros.`);
+  }
+
+  return v;
 }
-function setEmpty(){solutions=[];index=0;$('save').disabled=true;$('next').disabled=true;$('which-solution').textContent='';for(const k of fields){$('r-'+k).textContent='—';$('r-'+k).className='result-value';$('warn-'+k).hidden=true;}drawChart(null);}
+
+            function setEmpty(){solutions=[];index=0;$('save').disabled=true;$('next').disabled=true;$('which-solution').textContent='';for(const k of fields){$('r-'+k).textContent='—';$('r-'+k).className='result-value';$('warn-'+k).hidden=true;}drawChart(null);}
 function validEntry(k, value) {
   if (value === '') return true;
   if (k === 'EMC') {
