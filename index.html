@@ -1,19 +1,32 @@
-<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#493021"><title>KLITZKE WoodCalc — Diagrama de Keylwerth</title><link rel="icon" href="assets/icone_woodcalc.png"><link rel="stylesheet" href="styles.css"></head><body>
-<header class="site-header"><img src="assets/logo_klitzke.jpg" alt="Logo KLITZKE WoodCalc"><div class="heading"><strong>KLITZKE WoodCalc</strong>Ferramenta didática para interpretação do Diagrama de Keylwerth e verificação matemática do<br>Teor de Umidade de Equilíbrio da Madeira (TUE)</div></header>
-<main class="layout"><section class="panel sidebar" aria-labelledby="dados-title"><h2 id="dados-title">Dados informados</h2><p class="instructions">Informe apenas dois valores. O sistema calculará automaticamente os demais.</p>
-<form id="calc-form" novalidate><div class="input-group"><label for="TBS" class="input-label">TBS — Bulbo seco (°C)<span class="line red" aria-hidden="true"></span></label><input id="TBS" name="TBS" inputmode="decimal" autocomplete="off" value="45" aria-label="Temperatura de bulbo seco"></div>
-<div class="input-group"><label for="TBU" class="input-label">TBU — Bulbo úmido (°C)</label><input id="TBU" name="TBU" inputmode="decimal" autocomplete="off" aria-label="Temperatura de bulbo úmido"></div>
-<div class="input-group"><label for="UR" class="input-label">UR — Umidade relativa (%)<span class="line blue" aria-hidden="true"></span></label><input id="UR" name="UR" inputmode="decimal" autocomplete="off" value="55" aria-label="Umidade relativa"></div>
-<div class="input-group"><label for="EMC" class="input-label">TUE — Teor de umidade de equilíbrio (%)<span class="pin" aria-hidden="true">📍</span></label><input id="EMC" name="EMC" inputmode="decimal" autocomplete="off" aria-label="Teor de umidade de equilíbrio"></div>
-<div class="actions"><button type="submit" class="primary">Calcular</button><button type="button" id="clear" class="secondary">Limpar</button></div></form>
-<h2 class="results-heading">Resultados</h2><table class="results-table" aria-label="Resultados calculados"><tbody>
-<tr><th scope="row">TBS</th><td class="value-cell"><span class="result-value" id="r-TBS">—</span></td><td class="action-cell"><button class="alert-icon" id="warn-TBS" title="Aviso de precisão" aria-label="Aviso de precisão para TBS" hidden>⚠</button></td></tr>
-<tr><th scope="row">TBU</th><td class="value-cell"><span class="result-value" id="r-TBU">—</span></td><td class="action-cell"><button class="alert-icon" id="warn-TBU" title="Aviso de precisão" aria-label="Aviso de precisão para TBU" hidden>⚠</button></td></tr>
-<tr><th scope="row">UR</th><td class="value-cell"><span class="result-value" id="r-UR">—</span></td><td class="action-cell"><button class="alert-icon" id="warn-UR" title="Aviso de precisão" aria-label="Aviso de precisão para UR" hidden>⚠</button></td></tr>
-<tr><th scope="row">TUE</th><td class="value-cell"><span class="result-value" id="r-EMC">—</span></td><td class="action-cell"><button class="alert-icon" id="warn-EMC" title="Aviso de precisão" aria-label="Aviso de precisão para TUE" hidden>⚠</button><button id="next" class="secondary solution-button" disabled>Solução ›</button></td></tr></tbody></table>
-<p id="status" class="message" role="status" aria-live="polite"></p><p id="which-solution" class="message"></p><p class="pressure">Pressão atmosférica fixa: 101,325 kPa</p>
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#493021" name="theme-color"/><title>KLITZKE WoodCalc — Diagrama de Keylwerth</title><link href="assets/icone_woodcalc.png" rel="icon"/><link href="styles.css" rel="stylesheet"/><link href="cabecalho.css" rel="stylesheet"/></head><body class="page-calc">
+<header class="site-header woodcalc-header">
+<img alt="Logo KLITZKE WoodCalc" class="woodcalc-header-logo" src="assets/logo_klitzke.jpg"/>
+<nav aria-label="Navegação entre os módulos" class="woodcalc-header-nav">
+<a aria-current="page" class="nav-calc" href="index.html">Calculadora Psicrométrica</a>
+<a class="nav-dry" href="secagem.html">Programação de Secagem</a>
+</nav>
+<div class="heading woodcalc-header-heading">
+<strong>KLITZKE WoodCalc</strong>
+    Ferramenta didática para interpretação do Diagrama de Keylwerth e determinação matemática do<br/>
+    Teor de Umidade de Equilíbrio da Madeira (TUE)
+  </div>
+</header>
+
+<main class="layout"><section aria-labelledby="dados-title" class="panel sidebar"><h2 id="dados-title">Dados informados</h2><p class="instructions">Informe apenas dois valores. O sistema calculará automaticamente os demais.</p>
+<form id="calc-form" novalidate=""><div class="input-group"><label class="input-label" for="TBS">TBS — Bulbo seco (°C)<span aria-hidden="true" class="line red"></span></label><input aria-label="Temperatura de bulbo seco" autocomplete="off" id="TBS" inputmode="decimal" name="TBS" value="45"/></div>
+<div class="input-group"><label class="input-label" for="TBU">TBU — Bulbo úmido (°C)</label><input aria-label="Temperatura de bulbo úmido" autocomplete="off" id="TBU" inputmode="decimal" name="TBU"/></div>
+<div class="input-group"><label class="input-label" for="UR">UR — Umidade relativa (%)<span aria-hidden="true" class="line blue"></span></label><input aria-label="Umidade relativa" autocomplete="off" id="UR" inputmode="decimal" name="UR" value="55"/></div>
+<div class="input-group"><label class="input-label" for="EMC">TUE — Teor de umidade de equilíbrio (%)<span aria-hidden="true" class="pin">📍</span></label><input aria-label="Teor de umidade de equilíbrio" autocomplete="off" id="EMC" inputmode="decimal" name="EMC"/></div>
+<div class="actions"><button class="primary" type="submit">Calcular</button><button class="secondary" id="clear" type="button">Limpar</button></div></form>
+<h2 class="results-heading">Resultados</h2><table aria-label="Resultados calculados" class="results-table"><tbody>
+<tr><th scope="row">TBS</th><td class="value-cell"><span class="result-value" id="r-TBS">—</span></td><td class="action-cell"><button aria-label="Aviso de precisão para TBS" class="alert-icon" hidden="" id="warn-TBS" title="Aviso de precisão">⚠</button></td></tr>
+<tr><th scope="row">TBU</th><td class="value-cell"><span class="result-value" id="r-TBU">—</span></td><td class="action-cell"><button aria-label="Aviso de precisão para TBU" class="alert-icon" hidden="" id="warn-TBU" title="Aviso de precisão">⚠</button></td></tr>
+<tr><th scope="row">UR</th><td class="value-cell"><span class="result-value" id="r-UR">—</span></td><td class="action-cell"><button aria-label="Aviso de precisão para UR" class="alert-icon" hidden="" id="warn-UR" title="Aviso de precisão">⚠</button></td></tr>
+<tr><th scope="row">TUE</th><td class="value-cell"><span class="result-value" id="r-EMC">—</span></td><td class="action-cell"><button aria-label="Aviso de precisão para TUE" class="alert-icon" hidden="" id="warn-EMC" title="Aviso de precisão">⚠</button><button class="secondary solution-button" disabled="" id="next">Solução ›</button></td></tr></tbody></table>
+<p aria-live="polite" class="message" id="status" role="status"></p><p class="message" id="which-solution"></p><p class="pressure">Pressão atmosférica fixa: 101,325 kPa</p>
 <div class="credit"><span class="eyebrow">DESENVOLVIMENTO</span><strong>Leon Henrique Pereira</strong></div><div class="credit"><span class="eyebrow">AGRADECIMENTO ESPECIAL</span><strong>Prof. Dr. Ricardo Jorge Klitzke</strong><span class="fine">Engenharia Industrial Madeireira</span><span class="fine">Disciplinas de Secagem da Madeira I e II</span></div></section>
-<section class="panel graphic" aria-labelledby="grafico-title"><div class="graphic-top"><h2 id="grafico-title">Gráfico de Keylwerth</h2><button id="save" class="secondary export" disabled>Salvar gráfico (PNG)</button></div><div class="graphic-stage"><canvas id="chart" width="1448" height="2047" aria-label="Tabela psicrométrica com linhas de temperatura e umidade e marcador de TUE" role="img">O navegador precisa oferecer suporte a Canvas.</canvas></div><p class="graphic-note">A tabela é o instrumento didático principal. O cálculo oferece uma estimativa matemática para conferência.</p><small class="status-line" id="load-status" aria-live="polite"></small></section></main>
+<section aria-labelledby="grafico-title" class="panel graphic"><div class="graphic-top"><h2 id="grafico-title">Gráfico de Keylwerth</h2><button class="secondary export" disabled="" id="save">Salvar gráfico (PNG)</button></div><div class="graphic-stage"><canvas aria-label="Tabela psicrométrica com linhas de temperatura e umidade e marcador de TUE" height="2047" id="chart" role="img" width="1448">O navegador precisa oferecer suporte a Canvas.</canvas></div><p class="graphic-note">A tabela é o instrumento didático principal. O cálculo oferece uma estimativa matemática para conferência.</p><small aria-live="polite" class="status-line" id="load-status"></small></section></main>
 <p class="fineprint">Modelo de Hailwood–Horrobin e equações psicrométricas aproximadas. Valores numéricos podem diferir da leitura visual do diagrama; a exibição não substitui medições experimentais.</p>
 <script src="calculos.js"></script><script src="main.js"></script></body></html>
