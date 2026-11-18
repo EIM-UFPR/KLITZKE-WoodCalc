@@ -1,0 +1,125 @@
+:root{font-family:Segoe UI,Arial,sans-serif;color:#372a21;background:#f5f1ed}*{box-sizing:border-box}body{margin:0}header{background:linear-gradient(120deg,#4e3124,#74523c);color:white;padding:26px 0}.wrap{max-width:1300px;margin:auto;padding:0 22px}.header{display:flex;justify-content:space-between;align-items:center;gap:15px}.eyebrow{font-size:11px;letter-spacing:1.6px;color:#e6c8a9;font-weight:700}h1{font-size:29px;margin:8px 0 5px}header p{color:#e2d1c3;margin:0}.pill{border:1px solid #b89a82;border-radius:30px;font-size:12px;padding:9px 13px;white-space:nowrap}main{padding-top:25px!important;padding-bottom:30px!important}.panel{background:#fff;border:1px solid #e1d7ce;box-shadow:0 5px 24px #432a1510;border-radius:12px;margin-bottom:22px;padding:22px}.topline{display:flex;justify-content:space-between;gap:20px;align-items:flex-start;margin-bottom:20px}h2{font-size:19px;margin:0 0 5px}.topline p,.help p{color:#705f52;margin:0;font-size:14px;line-height:1.6}.actions{display:flex;gap:8px;flex-wrap:wrap}button{font:inherit;font-weight:600;font-size:13px;padding:10px 13px;border-radius:7px;cursor:pointer;border:1px solid #d1bcaa;background:#fff;color:#533727}button:hover{filter:brightness(.95)}.primary{background:#80553b;border-color:#80553b;color:white}.quiet{background:#faf8f6}.table-scroll{overflow-x:auto}table{border-collapse:separate;border-spacing:0;width:100%;min-width:1050px;font-size:13px}th{background:#f0e7de;border-bottom:2px solid #bb9c85;color:#594230;text-align:left;padding:12px 8px;white-space:nowrap}td{padding:9px 6px;border-bottom:1px solid #ece6df;vertical-align:middle}tr.final td{background:#fcf7f2}tr.heating td{background:#fffaf1}th small{font-weight:400}td input,td select{width:100%;min-width:63px;border:1px solid #cfbeb0;background:#fff;border-radius:6px;padding:9px 7px;font:inherit;color:#2e2d2b;text-align:center}td input[readonly],td input:disabled{background:#f0eeeb;color:#665d55;border-color:#e2ddd6}td input:focus,td select:focus{outline:2px solid #c9a88b;outline-offset:0}.phase{font-weight:700;min-width:105px}.phase select{margin-top:6px;font-weight:400;font-size:11px;padding:6px 3px;min-width:110px}.bad{box-shadow:inset 0 0 0 1px #c44940!important;background:#fff7f6!important}.delete{padding:6px 8px;color:#a84035;border-color:#e1c7c4}.last{width:48px}.under{margin-top:12px;display:flex;gap:7px;align-items:center;font-size:12px;color:#746354}.dot{height:10px;width:10px;background:#ddd5cd;border-radius:50%}#alerts{margin-top:12px;font-size:13px;color:#9c4036;line-height:1.6}#alerts:empty{display:none}.chart{width:100%;overflow-x:auto}.chart svg{width:100%;min-width:690px;display:block}.legend{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;font-size:13px;margin:8px 0}.legend i{display:inline-block;width:25px;height:3px;vertical-align:middle;margin-right:8px}.red{background:#e32a32}.blue{background:#2578d4}.brown{background:#93613c}.note{font-size:12px;color:#766a61;line-height:1.55}.help{padding:18px 22px}.help p{margin-top:9px}footer{text-align:center;padding:12px 20px 30px;font-size:12px;color:#8d7b6e}@media(max-width:750px){.header,.topline{flex-direction:column}.pill{white-space:normal}h1{font-size:23px}.panel{padding:15px}.wrap{padding:0 12px}.actions{width:100%}button{flex:1}}@media print{body{background:white}header{padding:10px 0;color:#333;background:white}.panel{box-shadow:none;border:0;break-inside:avoid}button,.pill,.help,footer{display:none}.table-scroll{overflow:visible}table{min-width:0;font-size:9px}td input,td select{padding:2px;border:none;font-size:9px}.chart svg{min-width:0}.wrap{max-width:none;padding:0 5px!important}}
+
+/* v1.1 — identificação automática de grandezas e potencial */
+table{min-width:1280px}td input{min-width:65px}.potential-note{margin-top:5px;font-size:13px;line-height:1.35;color:#694329;white-space:normal;min-width:165px}.clear-row{padding:6px 8px;margin-right:4px}.last{min-width:112px}th[colspan="2"]{text-align:center}.phase{min-width:110px}tr.dry td:nth-child(8){min-width:195px}
+
+/* v1.2 — cabeçalhos uniformes e potencial indicado apenas por cor */
+.potential-legend{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-top:14px;padding:12px 14px;border:1px solid #e4d7cd;background:#fdfaf7;border-radius:8px;font-size:12px;color:#624c3d;line-height:1.5}
+.legend-title{font-weight:700;width:100%;font-size:13px}
+.legend-item{display:inline-flex;align-items:center;gap:6px}
+.legend-swatch{display:inline-block;width:20px;height:15px;border:1px solid #b9afa7;border-radius:4px;flex-shrink:0}
+.legend-tail{font-size:11px;color:#806b5d;font-style:italic}
+.potential-rare{background-color:#f1e1ef !important;border-color:#bc8bb6 !important}
+.potential-tropical{background-color:#ffe9d6 !important;border-color:#d6a277 !important}
+.potential-pinus{background-color:#e9efd2 !important;border-color:#a9bb79 !important}
+.potential-bva{background-color:#d7f0df !important;border-color:#74b991 !important}
+.potential-unknown{background-color:#fff2ed !important;border-color:#c67a65 !important}
+tr.dry td:nth-child(8){min-width:118px}
+@media print{.potential-legend{break-inside:avoid}.legend-swatch,td input[class*="potential-"]{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* v1.4 — resultados calculados editáveis nas etapas de secagem */
+tr.dry input.auto-result{background:#f0f6fa;border-color:#c9d8e1;color:#38546a}
+tr.dry input.auto-result:focus{background:#fff}
+
+
+/* v1.5 — cabeçalhos centralizados e campos uniformes (capacidade de 8 dígitos) */
+table{width:max-content;min-width:100%;table-layout:auto}
+thead th{text-align:center;vertical-align:middle}
+thead th[colspan="2"]{text-align:center}
+td:not(.phase){text-align:center}
+td input,td select{width:calc(8ch + 20px);min-width:0;max-width:100%;text-align:center;font-variant-numeric:tabular-nums}
+tr.dry td:nth-child(8){min-width:0}
+.phase{white-space:nowrap}
+.last{min-width:104px;text-align:center}
+@media print{td input,td select{width:8ch;max-width:100%}}
+
+/* v1.6 — seleção de dificuldade e avisos */
+.guide-selection{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin:0 0 15px;font-size:13px}
+.guide-selection select{font:inherit;padding:9px 12px;border:1px solid #cfbeb0;border-radius:6px;background:white;color:#49382b;max-width:100%}
+tr.dry input[data-key="ps"]{font-weight:650}
+tr.dry input[data-key="moistStart"][readonly]{background:#f0eeeb;color:#665d55}
+@media print{.guide-selection select{border:none;padding:0}}
+
+/* v2.0 — espessura, resumo, quadro de consulta e impressão */
+.thickness-panel{display:flex;align-items:center;flex-wrap:wrap;gap:8px 12px;margin-bottom:15px;padding:12px 14px;border:1px solid #dfd0c4;background:#faf6f2;border-radius:8px;font-size:13px}
+.thickness-panel input{width:112px;min-width:112px;padding:9px;border-radius:6px;border:1px solid #cfbeb0;font:inherit;text-align:center}
+.thickness-panel small{color:#746354;font-size:12px;flex-basis:100%}
+.thickness-panel input:focus{outline:2px solid #c9a88b}
+.difficulty-reference{margin-top:14px;border:1px solid #e4d7cd;border-radius:8px;padding:12px 14px;background:#fdfbf9}
+.difficulty-reference h3{margin:0 0 10px;font-size:14px}
+.reference-scroll{overflow-x:auto}
+.reference-table{min-width:590px;width:100%;border-collapse:collapse;font-size:12px}
+.reference-table th,.reference-table td{padding:7px 10px;text-align:center;border-bottom:1px solid #e8e0d9;white-space:normal}
+.reference-table th{background:#f0e7de}
+.reference-table td:first-child{text-align:left;font-weight:600}
+.reference-table tr:last-child td{border-bottom:none}
+.total-row td{background:#ede3da!important;border-top:2px solid #bb9c85;font-weight:700;text-align:center;padding:13px 7px}
+.total-row td:first-child{text-align:right}
+.total-row #totalHours,.total-row #finalTue{font-size:14px;color:#5a3525}
+@media print{.difficulty-reference{break-inside:avoid}.thickness-panel{break-inside:avoid}.total-row td{print-color-adjust:exact;-webkit-print-color-adjust:exact}}
+
+/* v2.1 — resultados finais alinhados às colunas TUE e Tempo (Horas) */
+.total-row td:first-child{text-align:center}
+.total-row .summary-cell{vertical-align:middle;white-space:normal;min-width:84px;padding:9px 4px}
+.total-row .summary-label{display:block;font-size:11px;font-weight:700;line-height:1.2;margin-bottom:5px}
+.total-row .summary-cell strong{display:block;font-size:14px;white-space:nowrap;color:#5a3525}
+
+/* v2.2 — quadro de consulta centralizado; título preservado */
+.reference-table td:first-child{text-align:center}
+.difficulty-reference .reference-table th,.difficulty-reference .reference-table td{text-align:center}
+
+/* Cabeçalho integrado com a imagem original e navegação compartilhada */
+header.integrated-header{display:flex;align-items:center;justify-content:center;gap:25px;background:#493021;color:#f3e7d6;padding:13px 20px;min-height:112px}
+.integrated-logo{width:184px;max-height:92px;object-fit:contain;background:#f7f4ed;padding:5px;border-radius:3px}
+.integrated-brand{display:flex;flex-direction:column;gap:5px;text-align:center;line-height:1.35}
+.integrated-brand strong{font-size:20px}.integrated-brand span{font-size:14px}.integrated-brand .integrated-subtitle{font-size:12px;color:#e6c8a9}
+.woodcalc-nav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;background:#f2e7d9;border-bottom:1px solid #d6c7b8;padding:10px 14px}
+.woodcalc-nav a{display:inline-block;padding:9px 16px;color:#493021;background:#fff;border:1px solid #cbb8a5;text-decoration:none;border-radius:5px;font-weight:700;font-size:13px}
+.woodcalc-nav a:hover,.woodcalc-nav a:focus-visible{background:#f6dfc6}
+.page-dry .woodcalc-nav .nav-dry{background:#493021;color:#fff;border-color:#493021}
+@media(max-width:600px){header.integrated-header{flex-direction:column;gap:8px;padding:12px}.integrated-logo{width:145px;max-height:74px}.integrated-brand strong{font-size:17px}.integrated-brand span{font-size:12px}.woodcalc-nav{gap:7px}.woodcalc-nav a{font-size:12px;padding:9px 10px}}
+@media print{.woodcalc-nav{display:none}}
+
+/* Identificação opcional da programação */
+.program-identity{padding:13px 14px;border:1px solid #dfd0c4;background:#faf6f2;border-radius:8px;margin-bottom:12px}
+.identity-fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.identity-field{display:flex;flex-direction:column;gap:7px;color:#49382b;font-size:13px;font-weight:650;min-width:0}
+.identity-field small{font-weight:400;color:#746354}
+.identity-field input,.identity-field select{width:100%;min-height:38px;border-radius:6px;border:1px solid #cfbeb0;background:white;color:#372a21;font:inherit;font-weight:400;padding:8px 10px}
+.identity-field input:focus,.identity-field select:focus{outline:2px solid #c9a88b}
+.identity-field[hidden]{display:none}
+.identity-note{margin:9px 0 0;color:#746354;font-size:12px}
+@media(max-width:920px){.identity-fields{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.identity-fields{grid-template-columns:1fr}}
+
+.thickness-identity{align-items:stretch!important;margin:0!important;padding:0!important;border:0!important;background:transparent!important;gap:7px!important}
+.thickness-identity input{width:100%!important;min-width:0!important;text-align:left!important}
+.thickness-identity small{font-size:11px!important;line-height:1.3}
+
+/* Ajustes finais v3.4 — identificação e comandos dentro do quadro */
+.identity-fields{align-items:start}
+.identity-actions{display:grid;grid-column:2 / 4;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;align-self:end;padding:0 0 3px}
+.identity-actions button{width:100%;white-space:normal;min-height:40px;padding:9px 7px}
+.species-identity .species-help{font-size:11px;line-height:1.35;font-weight:400;color:#746354}
+.ur-toggle{display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border:1px solid #d1bcaa;border-radius:7px;background:#faf8f6;color:#533727;font-size:13px;font-weight:600;white-space:nowrap;cursor:pointer}
+.ur-toggle input{accent-color:#439967;width:16px;height:16px;margin:0}
+@media(max-width:920px){.identity-actions{grid-column:1 / -1}}
+@media(max-width:560px){.identity-actions{grid-column:1;grid-template-columns:1fr}.graph-actions{flex-wrap:wrap}.ur-toggle{width:100%}}
+@media print{.identity-actions,.ur-toggle{display:none}}
+
+/* v3.5: comandos compactos alinhados à direita, à altura do campo Responsável. */
+.identity-actions{display:flex;grid-column:2 / 4;justify-content:flex-end;align-items:center;gap:9px;align-self:end;padding:0;min-width:0}
+.identity-actions button{width:auto;flex:0 0 auto;min-height:38px;height:38px;padding:7px 14px;white-space:nowrap}
+@media(max-width:920px){.identity-actions{grid-column:1 / -1;justify-content:flex-end}}
+@media(max-width:560px){.identity-actions{grid-column:1;display:flex;flex-wrap:wrap;justify-content:flex-end}.identity-actions button{width:auto}}
+
+/* v3.6 — créditos após as instruções de uso. */
+.credits{padding:20px 22px}
+.credits h2{margin-bottom:16px}
+.credits-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.credits-grid>div{display:flex;flex-direction:column;gap:5px}
+.credits-label{font-size:11px;font-weight:700;letter-spacing:.03em;color:#8a6752}
+.credits-grid strong{font-size:14px;color:#4e3124}
+.credits-course{border-top:1px solid #e7dcd2;margin-top:18px;padding-top:14px;display:flex;flex-direction:column;gap:4px;color:#4e3124;font-size:13px}
+.credits-course span{color:#746354}
+@media(max-width:750px){.credits-grid{grid-template-columns:1fr;gap:14px}}
